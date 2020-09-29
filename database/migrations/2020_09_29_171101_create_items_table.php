@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             // Main
             $table->string('name');
             $table->string('price');
-            $table->integer('count');
+            $table->unsignedInteger('count')->default(0);
             // Time stamp
             $table->timestamps();
         });
