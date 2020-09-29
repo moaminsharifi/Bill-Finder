@@ -6,6 +6,7 @@ use App\Http\Controllers\BillController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AuthController;
     /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +25,17 @@ Route::apiResource('bills', BillController::class)->except(['destroy']);
 Route::apiResource('category', CategoryController::class)->except(['destroy']);
 Route::apiResource('building', BuildingController::class)->except(['destroy']);
 Route::apiResource('item', ItemController::class)->except(['index','destroy']);
+
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('signup', [AuthController::class,'signup']);
+
+    Route::group([
+        'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', [AuthController::class,'logout']);
+        Route::get('user', [AuthController::class,'user']);
+    });
+});
