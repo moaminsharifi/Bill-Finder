@@ -7,22 +7,22 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Helpers\CustomResponse;
-
+use Hash;
 class AuthController extends Controller
 {
     /**
      * Create user
      *
-     * @param Request $request
      * @return string message
      */
-    public function signup(Request $request)
+    public function signup()
     {
 
         $attributes = request()->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
+            'name' => 'required|string|max:180',
+            'email' => 'required|string|email|unique:users|max:180',
+            'password' => 'required|string|max:180',
+            'password_confirm'=> 'required|same:password|max:180'
         ]);
         $attributes['password'] =  Hash::make($attributes['password']);
         $user = User::create(
@@ -33,6 +33,7 @@ class AuthController extends Controller
 
         $success = $user->getUserData();
         $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['token_type'] = 'Bearer';
         return CustomResponse::createSuccess($success);
 
     }
