@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CustomResponse;
 use App\Models\Building;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BuildingController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return CustomResponse
      */
     public function index()
     {
-        //
+        return CustomResponse::createSuccess(Building::all());
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return CustomResponse
      */
     public function create()
     {
@@ -31,55 +33,66 @@ class BuildingController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return CustomResponse
      */
-    public function store(Request $request)
+
+
+    public function store()
     {
-        //
+        $attributes = $this->validateRequestForCreateOrUpdate();
+        $building = Building::create($attributes);
+        return CustomResponse::createSuccess(['building_id'=>$building->id]);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Building  $building
-     * @return \Illuminate\Http\Response
+     * @return CustomResponse
      */
     public function show(Building $building)
     {
-        //
+        return CustomResponse::createSuccess($building->toArray());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Building  $building
-     * @return \Illuminate\Http\Response
+     * @return CustomResponse
      */
     public function edit(Building $building)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Building  $building
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Building $building
+     * @return CustomResponse
      */
-    public function update(Request $request, Building $building)
+    public function update(Building $building)
     {
-        //
+        $attributes = $this->validateRequestForCreateOrUpdate();
+        $building->update($attributes);
+
+        return CustomResponse::createSuccess($building->toArray());
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Building  $building
-     * @return \Illuminate\Http\Response
+     * Validate Request for create or update building
+     * @return array $attributes
      */
-    public function destroy(Building $building)
+    private function validateRequestForCreateOrUpdate()
     {
-        //
+        return request()->validate([
+            'name' => 'required|string|max:180',
+            'city' => 'required|string|max:30|in:tehran,qeshem,bandar',
+            'address' => 'required|string|max:180',
+            'google_map_url'=>'required|string|max:180'
+        ]);
     }
+
+
 }
