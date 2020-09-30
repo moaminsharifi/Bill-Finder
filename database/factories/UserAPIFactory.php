@@ -5,14 +5,14 @@ namespace Database\Factories;
 use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ModelFactory extends Factory
+class UserAPIFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = User::class;
 
     /**
      * Define the model's default state.
