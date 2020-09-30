@@ -67,12 +67,25 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Check User IS Admin
+     * @return bool
+     */
     public function isAdmin()
     {
-        if ((int)$this->role_id == 0){
+        if ((int)$this->is_admin == 1){
             return true;
         }
         return false;
+    }
+
+    /**
+     * Set User To Admin
+     */
+    public  function setAdmin(){
+        $this->is_admin = 1;
+        $this->save();
+
     }
 
 
