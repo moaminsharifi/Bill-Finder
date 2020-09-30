@@ -8,6 +8,10 @@ use App\Models\Bill;
 class Item extends Model
 {
     use HasFactory;
+    /**
+     * @var array
+     */
+    protected $guarded = [];
 
     /**
      * Relation Between Item And Bill Model

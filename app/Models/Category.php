@@ -8,7 +8,10 @@ use App\Models\Bill;
 class Category extends Model
 {
     use HasFactory;
-
+    /**
+     * @var array
+     */
+    protected $guarded = [];
     /**
      * Relation Between Category And Bill Model
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
