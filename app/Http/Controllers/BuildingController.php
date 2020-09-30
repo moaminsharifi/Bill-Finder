@@ -16,7 +16,7 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        return CustomResponse::createSuccess(Building::all());
+        return CustomResponse::createSuccess(Building::all()->take(20));
     }
 
     /**
