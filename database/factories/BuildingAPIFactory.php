@@ -14,11 +14,13 @@ class BuildingAPIFactory
     public static function make()
     {
         $faker = \Faker\Factory::create();
-
+        $cites = ['tehran' , 'qeshem' ,'bandar'];
         return [
             'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'password' => Str::random(32),
+            'address' => $faker->address,
+            'city' => $cites[random_int(0,2)],
+            'google_map_url'=>$faker->url,
         ];
+
     }
 }
