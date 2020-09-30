@@ -10,6 +10,13 @@ class Building extends Model
     use HasFactory;
 
     /**
+     * @var array
+     */
+    protected $guarded = [];
+    protected $hidden = ['created_at' , 'updated_at'];
+
+
+    /**
      * Relation Between Building And Bill Model
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
