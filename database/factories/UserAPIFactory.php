@@ -13,7 +13,7 @@ class UserAPIFactory
      *
      * @return array
      */
-    public static  function make()
+    public static function make()
     {
         $faker = \Faker\Factory::create();
         $password = Str::random(32);
