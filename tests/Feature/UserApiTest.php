@@ -81,6 +81,32 @@ class UserApiTest extends TestCase
                  ->assertJson(
                     CustomResponse::createErrorString('10002')
                     );
+        /**
+         * Check user Data with token
+         */
+        $response = $this->json('POST','/api/auth/login', $user);
+        $responseAsObject = json_decode($response->getContent());
+        $mainUserHeader = [
+             'HTTP_Authorization' => 'Bearer ' . $responseAsObject->data->token,
+             'Accept' => 'application/json',
+             'Content-Type' => 'application/json',
+         ];
+        $response = $this->json('GET','/api/auth/user', $mainUserHeader);
+        $jsonStructForGetUserData = [
+            'ok',
+            'data'=>[
+                'is_admin',
+                'name',
+                'email'
+            ]
+        ];
+
+        $response->assertStatus(200)
+            ->assertJsonStructure(
+                $jsonStructForGetUserData
+            );
+
+
 
     }
 }
