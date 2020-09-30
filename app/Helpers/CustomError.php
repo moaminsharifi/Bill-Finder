@@ -50,6 +50,11 @@ class CustomError
             'message' => 'Password Not Correct',
             'shortener' => 'bad_request',
         ),
+        '10003' => array(
+            'message' => 'User Not Admin',
+            'shortener' => 'forbidden',
+        ),
+
 
 
 
