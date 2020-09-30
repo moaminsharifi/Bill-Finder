@@ -1,28 +1,24 @@
 <?php
-
 namespace Database\Factories;
 
 use App\Models\Model;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Str;
 
-class ModelFactory extends Factory
+class BuildingAPIFactory
 {
     /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Model::class;
-
-    /**
-     * Define the model's default state.
+     * Make New model for api requests
      *
      * @return array
      */
-    public function definition()
+    public static function make()
     {
+        $faker = \Faker\Factory::create();
+
         return [
-            //
+            'name' => $faker->name,
+            'email' => $faker->unique()->safeEmail,
+            'password' => Str::random(32),
         ];
     }
 }
