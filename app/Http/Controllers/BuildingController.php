@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CustomResponse;
 use App\Models\Building;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class BuildingController extends Controller
 {
@@ -19,20 +17,10 @@ class BuildingController extends Controller
         return CustomResponse::createSuccess(Building::all()->take(20));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return CustomResponse
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return CustomResponse
      */
 
@@ -47,7 +35,7 @@ class BuildingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Building  $building
+     * @param Building $building
      * @return CustomResponse
      */
     public function show(Building $building)
@@ -58,7 +46,7 @@ class BuildingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Building  $building
+     * @param Building $building
      * @return CustomResponse
      */
     public function edit(Building $building)
@@ -69,14 +57,13 @@ class BuildingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Models\Building $building
+     * @param Building $building
      * @return CustomResponse
      */
     public function update(Building $building)
     {
         $attributes = $this->validateRequestForCreateOrUpdate();
         $building->update($attributes);
-
         return CustomResponse::createSuccess($building->toArray());
     }
 
