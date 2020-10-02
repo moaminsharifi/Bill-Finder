@@ -12,6 +12,7 @@ class Category extends Model
      * @var array
      */
     protected $guarded = [];
+    protected $hidden = ['created_at' , 'updated_at'];
     /**
      * Relation Between Category And Bill Model
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
