@@ -10,6 +10,7 @@ class BuildingAPIFactory
      * Make New model for api requests
      *
      * @return array
+     * @throws \Exception
      */
     public static function make()
     {
