@@ -16,8 +16,8 @@ class CategoryAPIFactory
 
         return [
             'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'password' => Str::random(32),
+            'description' => $faker->text(150),
+            'image_url' => $faker->imageUrl(),
         ];
     }
 }
