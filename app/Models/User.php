@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-
+use App\Models\Bill;
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
@@ -31,6 +32,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'email_verified_at',
+        'created_at',
+        'updated_at'
+
     ];
 
     /**
@@ -86,6 +91,15 @@ class User extends Authenticatable
         $this->is_admin = 1;
         $this->save();
 
+    }
+
+
+    /**
+     * Relation Between User And Bill Model
+     * @return hasMany
+     */
+    public function bills(){
+        return $this->hasMany(Bill::class);
     }
 
 
