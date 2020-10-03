@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Building;
 use App\Models\User;
+use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -17,6 +18,7 @@ class BuildingManagerApiTest extends TestCase
      * @test
      * @group building
      * @return void
+     * @throws Exception
      */
     public function createAndUpdateAndListBuildingTest()
     {
