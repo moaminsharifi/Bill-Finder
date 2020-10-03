@@ -14,7 +14,7 @@ use Database\Factories\CategoryAPIFactory;
 class CategoryManagerApiTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Check Categories Functionality
      * @test
      * @group category
      * @return void
