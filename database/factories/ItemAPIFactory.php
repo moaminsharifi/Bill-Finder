@@ -3,6 +3,7 @@ namespace Database\Factories;
 
 use App\Models\Model;
 use Str;
+use Exception;
 class ItemAPIFactory
 {
 
@@ -10,6 +11,7 @@ class ItemAPIFactory
      * Make New model for api requests
      *
      * @return array
+     * @throws Exception
      */
     public static function make()
     {
@@ -17,8 +19,8 @@ class ItemAPIFactory
 
         return [
             'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'password' => Str::random(32),
+            'price' => random_int(50000 , 100000),
+            'count' => random_int(10 , 100),
         ];
     }
 }
