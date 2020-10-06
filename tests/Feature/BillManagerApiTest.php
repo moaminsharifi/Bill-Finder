@@ -36,7 +36,9 @@ class BillManagerApiTest extends TestCase
          *     4.1 check existence in DB
          *     4.2 check existence with api
          * 5. Update Bill
-         *   5.1 update Bill Base Data (Category , Building , Items)
+         *   5.1 create New Category and get ID
+         *   5.2 Create New Building and get ID
+         *   5.3 update Bill Base Data (Category , Building )
          * 6. Get List of Bill
          */
 
@@ -170,17 +172,75 @@ class BillManagerApiTest extends TestCase
         $bill = Bill::find($bill_id)->first();
         $jsonStructForCheckBill = [
             'ok',
-            'data'=>[
-                $bill->toArray()
-            ]
+            'data'
         ];
 
         $response = $this->json('GET' , 'api/bill/'.$bill_id , $header);
-        print_r(json_decode($response->getContent()));
+
         $response->assertStatus(200)
             ->assertJsonStructure(
                 $jsonStructForCheckBill
             );
+        /**
+         * 5. Update Bill
+         */
+
+        /**
+         * 5.1 create New Category and get ID
+         */
+        $category = CategoryAPIFactory::make();
+        $response = $this->json('POST','/api/category' ,$category ,$header);
+        $category_id = json_decode($response->getContent())->data->category_id;
+
+
+        /**
+         * 5.2 Create New Building and get ID
+         */
+        $building = BuildingAPIFactory::make();
+        $response = $this->json('POST','/api/building' ,$building ,$header);
+        $building_id = json_decode($response->getContent())->data->building_id;
+
+
+        /**
+         * 5.3 update Bill Base Data (Category , Building )
+         */
+        $billForUpdate = BillAPIFactory::make($building_id  , $category_id);
+        unset($billForUpdate['items']);
+
+
+
+        $response = $this->json('PATCH','api/bill/'.$bill_id ,$billForUpdate ,$header);
+        $bill = Bill::find($bill_id)->first();
+        $resultOfUpdateResponse = $bill->getData();
+        $jsonStructForUpdateBill = [
+            'ok'=>1,
+            'data'=>[
+                $resultOfUpdateResponse
+            ]
+        ];
+
+        $response->assertStatus(200);
+
+
+
+        /**
+         *
+         */
+        $i = 0 ;
+        for ( ;$i < 20 ; $i = $i + 1){
+            $bill = BillAPIFactory::make($building_id  , $category_id);
+            $response = $this->json('POST','/api/bill' ,$bill ,$header)->assertStatus(200);
+        }
+        $this->assertSame(Bill::all()->count()  , 21);
+
+        $response = $this->json('GET','/api/bill'  ,$header);
+        print_r($response->getContent());
+
+
+
+
+
+
 
 
 
