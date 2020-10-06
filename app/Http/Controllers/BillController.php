@@ -17,7 +17,7 @@ class BillController extends Controller
      */
     public function index()
     {
-        //
+        return CustomResponse::createSuccess(Bill::all()->take(10));
     }
 
     /**
@@ -72,13 +72,14 @@ class BillController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
      * @param Bill $bill
-     * @return Response
+     * @return void
      */
-    public function update(Request $request, Bill $bill)
+    public function update(Bill $bill)
     {
-        //
+        $attributes  = $this->validateRequestForUpdate();
+        $bill->update($attributes);
+        return CustomResponse::createSuccess($bill->getData());
     }
 
     /**
@@ -99,5 +100,20 @@ class BillController extends Controller
         $attributes['creator_id'] = request()->user()->id;
 
         return $attributes;
+    }
+
+    /**
+     * validate Request For Update Existence Bill Model
+     */
+    private function validateRequestForUpdate(){
+        return request()->validate([
+            'name' => 'required|string|max:180',
+            'description' => 'required|string|max:180',
+            'price' => 'required|integer|max:9223372036854775807',
+            'image_url'=>'required|string|max:180',
+            'building_id'=>'required|integer|max:9223372036854775807|exists:buildings,id',
+            'category_id'=>'required|integer|max:9223372036854775807|exists:categories,id',
+        ]);
+
     }
 }
