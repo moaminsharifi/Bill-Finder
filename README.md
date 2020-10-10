@@ -3,7 +3,7 @@
 
 ## About Bill Finder
 At first Let's check problem:
-Thing You have shop or someone buys different thing like some usb drive and after 10 months You can't find how much and where you buy it?
+Think You must Bulk purchasing different item or buy different thing like usb drive and after 10 months You can't find how much and where you bought it?
 
 # Bill Finder
 
@@ -12,6 +12,7 @@ Bill Finder is webapp help to save Bills and Receipts with specific metadata lik
 - building (location of buy) 
 - category 
 - items
+
 When store such data like this then You Never forget where bought what and get some basic report.
 
 ##### About Laravel:
@@ -50,6 +51,8 @@ php artisan db:seed
 
 ### Todo
 
+- [ ] Add Item Functionality and Tests
+- [ ] Assert More complex on `BillManagerApiTest.php`
 - [ ] Add Api Documentation
 - [ ] Update Project Description
 - [ ] Add `.env` Documentation
