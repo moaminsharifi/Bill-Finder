@@ -4,7 +4,13 @@
 ## About Bill Finder
 At first Let's check problem:
 Think You must Bulk purchasing different item or buy different thing like usb drive and after 10 months You can't find how much and where you bought it?
+#### My Real World Problem:
+I (Who tell me) Have small dress store and every time buy new from different store. I must manage Bills and hard to search and find where we bought this specific product.I need some app to manage bill and items:
+1. search in it
+2. find address
 
+... And Here Bill Finder:
+   
 # Bill Finder
 
 Bill Finder is webapp help to save Bills and Receipts with specific metadata like :
