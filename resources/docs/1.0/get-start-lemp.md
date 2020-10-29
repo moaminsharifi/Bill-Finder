@@ -1,4 +1,4 @@
-# get start LEMP
+# Get start with LEMP
 1. [Need install LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04) and also check [laravel installation](https://laravel.com/docs/8.x/)
 2. [install composer](https://getcomposer.org/download/)
 3. copy or create ENV - [help about choice env variable](env.md)
