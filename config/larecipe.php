@@ -95,10 +95,10 @@ return [
 
     'search'            => [
         'enabled'       => false,
-        'default'       => 'algolia',
+        'default'       => 'internal',
         'engines'       => [
             'internal'  => [
-                'index' => ['h2', 'h3']
+                'index' => ['h1', 'h2' , 'h3' , 'h4' ,'h5' , 'p']
             ],
             'algolia'   => [
                 'key'   => '',
@@ -145,11 +145,11 @@ return [
     */
 
     'seo'                 => [
-        'author'          => '',
-        'description'     => '',
-        'keywords'        => '',
+        'author'          => 'Amin Sharifi',
+        'description'     => 'Bill Finder Documentation',
+        'keywords'        => 'api,laravel,Bill Finder,Api Documentation',
         'og'              => [
-            'title'       => '',
+            'title'       => 'Bill Finder Documentation',
             'type'        => 'article',
             'url'         => '',
             'image'       => '',
