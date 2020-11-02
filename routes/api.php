@@ -18,14 +18,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
 
 
 
 Route::group([
-    'middleware' => 'auth:api','is_admin'
+    'middleware' => 'auth:sanctum','is_admin'
 ], function() {
     Route::apiResource('bill', BillController::class)->except(['destroy']);
     Route::apiResource('category', CategoryController::class)->except(['destroy']);
@@ -40,7 +40,7 @@ Route::group([
     Route::post('signup', [AuthController::class,'signup']);
 
     Route::group([
-        'middleware' => 'auth:api'
+        'middleware' => 'auth:sanctum'
     ], function() {
         Route::get('logout', [AuthController::class,'logout']);
         Route::get('user', [AuthController::class,'user']);
