@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BuildingController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +21,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group([
+    'middleware' => 'auth:sanctum','is_admin'
+], function () {
+    Route::Resource('bill', BillController::class)->except(['destroy']);
+    Route::Resource('category', CategoryController::class)->except(['destroy']);
+    Route::Resource('building', BuildingController::class)->except(['destroy']);
+    Route::Resource('item', ItemController::class)->except(['index','destroy']);
+});
+
+
 
 Route::middleware(['auth:sanctum', ])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
