@@ -22,15 +22,13 @@ use App\Http\Controllers\API\AuthController;
 //    return $request->user();
 //});
 
-
-
 Route::group([
     'middleware' => 'auth:sanctum','is_admin'
 ], function() {
-    Route::apiResource('bill', BillController::class)->except(['destroy']);
-    Route::apiResource('category', CategoryController::class)->except(['destroy']);
-    Route::apiResource('building', BuildingController::class)->except(['destroy']);
-    Route::apiResource('item', ItemController::class)->except(['index','destroy']);
+    Route::apiResource('bill', BillController::class , ['as' => 'api'])->except(['destroy']);
+    Route::apiResource('category', CategoryController::class, ['as' => 'api'])->except(['destroy']);
+    Route::apiResource('building', BuildingController::class, ['as' => 'api'])->except(['destroy']);
+    Route::apiResource('item', ItemController::class, ['as' => 'api'])->except(['index','destroy']);
 });
 
 Route::group([
