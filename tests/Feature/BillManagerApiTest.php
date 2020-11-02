@@ -234,7 +234,9 @@ class BillManagerApiTest extends TestCase
         $this->assertSame(Bill::all()->count()  , 21);
 
         $response = $this->json('GET','/api/bill'  ,$header);
-        print_r($response->getContent());
+     
+        $response->assertStatus(200);
+
 
 
 

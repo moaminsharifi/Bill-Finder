@@ -2,11 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BillController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BuildingController;
-use App\Http\Controllers\ItemController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\API\BillController;
+use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\BuildingController;
+use App\Http\Controllers\API\ItemController;
+use App\Http\Controllers\API\AuthController;
     /*
 |--------------------------------------------------------------------------
 | API Routes

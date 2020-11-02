@@ -9,9 +9,11 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+// use Laravel\Passport\HasApiTokens as PassportHasApiTokens;
 
 class User extends Authenticatable
 {
+    # use HasApiTokens, Notifiable;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -110,6 +112,6 @@ class User extends Authenticatable
     public function bills(){
         return $this->hasMany(Bill::class);
     }
-    
+
 
 }

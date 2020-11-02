@@ -145,7 +145,7 @@ class BuildingManagerApiTest extends TestCase
         $response = $this->json('GET','/api/building' ,$header);
 
 
-        print_r(json_decode($response->getContent()));
+     
         $response
             ->assertStatus(200)
            ;

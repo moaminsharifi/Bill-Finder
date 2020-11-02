@@ -30,7 +30,7 @@ class UserApiTest extends TestCase
             ]
         ];
         $response = $this->json('POST' , 'api/auth/signup', $user);
-
+        
         $response->assertStatus(200)
             ->assertJsonStructure(
                 $jsonStructForLogin
