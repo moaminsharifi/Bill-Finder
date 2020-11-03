@@ -7,7 +7,7 @@
                 @include("larecipe::partials.logo")
 
                 <p class="inline-block font-semibold mx-1 text-grey-dark">
-                    {{ config('app.name') }}
+                    {{ config('app.name', 'Bill Finder') }}
                 </p>
             </a>
 
