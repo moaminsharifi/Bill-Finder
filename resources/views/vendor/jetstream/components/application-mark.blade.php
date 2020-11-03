@@ -1,4 +1,5 @@
-<svg height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
+
     <g id="hand-receipt-invoice-bill-finance">
         <path
             d="m56 3-4 2-4-2-4 2-4.016-2-3.984 2-4-2-4 2-4-2v11 36 9l4 2 4-2 4 2 4-2 4.016 2 3.984-2 4 2 4-2 4 2v-11-36-9z"
