@@ -17,7 +17,7 @@ class CreateBuildingsTable extends Migration
             $table->bigIncrements('id');
             // Main
             $table->string('name');
-            $table->string('address')->nullable();
+            $table->text('address')->nullable();
             $table->enum('city' , ['tehran' , 'qeshem' ,'bandar'])->default('tehran');
             $table->string('google_map_url')->nullable();
             // Time stamp
