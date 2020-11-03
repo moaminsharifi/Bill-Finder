@@ -77,8 +77,8 @@ class BuildingController extends Controller
         return request()->validate([
             'name' => 'required|string|max:180',
             'city' => 'required|string|max:30|in:tehran,qeshem,bandar',
-            'address' => 'required|string|max:180',
-            'google_map_url'=>'required|string|max:180'
+            'address' => 'required|string|max:1280',
+            'google_map_url'=>'string|max:180'
         ]);
     }
 
