@@ -15,6 +15,8 @@ class BuildingController extends Controller
     public function index()
     {
         //
+        return view('building.index');
+
     }
 
     /**
@@ -25,6 +27,7 @@ class BuildingController extends Controller
     public function create()
     {
         //
+        return view('building.create');
     }
 
     /**
@@ -47,6 +50,8 @@ class BuildingController extends Controller
     public function show(Building $building)
     {
         //
+        return view('building.create');
+
     }
 
     /**
