@@ -1,4 +1,5 @@
 require('./bootstrap');
+// require('alertifyjs');
 
 import Vue from 'vue';
 

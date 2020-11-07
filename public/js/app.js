@@ -44160,7 +44160,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_jetstream__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(laravel_jetstream__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! portal-vue */ "./node_modules/portal-vue/dist/portal-vue.common.js");
 /* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(portal_vue__WEBPACK_IMPORTED_MODULE_3__);
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('alertifyjs');
+
 
 
 
