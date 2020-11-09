@@ -19,7 +19,7 @@ class CreateBuildingsTable extends Migration
             $table->string('name');
             $table->text('address')->nullable();
             $table->enum('city' , ['tehran' , 'qeshem' ,'bandar'])->default('tehran');
-            $table->string('google_map_url')->nullable();
+            $table->string('google_map_url', 1820)->nullable();
             // Time stamp
             $table->timestamps();
         });
