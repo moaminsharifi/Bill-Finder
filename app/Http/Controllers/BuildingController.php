@@ -14,7 +14,7 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        //
+        
         return view('building.index');
 
     }
@@ -31,17 +31,6 @@ class BuildingController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Building  $building
@@ -49,8 +38,8 @@ class BuildingController extends Controller
      */
     public function show(Building $building)
     {
-        //
-        return view('building.create');
+        
+        return view('building.show' , ['building' => $building]);
 
     }
 
@@ -62,7 +51,8 @@ class BuildingController extends Controller
      */
     public function edit(Building $building)
     {
-        //
+        return view('building.edit', ['building' => $building]);
+
     }
 
     /**
