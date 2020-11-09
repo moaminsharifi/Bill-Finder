@@ -46,10 +46,7 @@ composer install
 ```shell script
 php artisan migrate
 ```
-- Install Passport Keys:
-```shell script
-php artisan passport install
-```
+
 - Import Some Dumpy Data (optical):
 ```shell script
 php artisan db:seed
