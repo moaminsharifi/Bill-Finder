@@ -5,31 +5,17 @@
         <hr>
         <p class="mt-2 text-gray-600">@lang('building.add_new_building_description')</p>
     </div>
- 
+
     <form class="mt-6" wire:submit.prevent="createBuilding">
         <!-- Added Massage  -->
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3 mb-6 md:mb-0">
                 @if (session()->has('message'))
-                <div class='notifications top-right'></div>
-                
-                <div class="animate-pulse alert alert-success mb-6">
-                    <div class=" text-center py-4 lg:px-4">
-                        <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
-                            role="alert">
-                            <span
-                                class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">@lang('building.add_new_building_after_submit_added_title')</span>
-                            <span class=" mr-2 text-left flex-auto"> 
-                            <a href="{{session('id') ? route('building.show' ,  session('id')) : '#' }}"> @lang('building.add_new_building_after_submit_added_msg')</a>
-                            </span>
-                            <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
-                                </svg>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    alertify.notify("@lang('building.add_new_building_after_submit_added_title')", 'success', 3);
+
+                </script>
+
                 @endif
             </div>
             <!-- Name -->
