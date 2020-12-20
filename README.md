@@ -54,12 +54,12 @@ php artisan db:seed
 
 ### Todo
 
-- [ ] Add Item Functionality and Tests
+- [x] Add Item Functionality and Tests
 - [ ] Assert More complex on `BillManagerApiTest.php`
 - [ ] Add Api Documentation
-- [ ] Update Project Description
-- [ ] Add `.env` Documentation
-- [ ] Add FrontEnd Project Version
+- [x] Update Project Description
+- [x] Add `.env` Documentation
+- [x] Add FrontEnd Project Version
 
 
 ## License:
