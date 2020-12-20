@@ -27,8 +27,8 @@ Route::group([
     'middleware' => 'auth:sanctum','is_admin'
 ], function () {
     Route::Resource('bill', BillController::class)->except(['destroy']);
-    Route::Resource('category', CategoryController::class)->except(['destroy']);
-    Route::Resource('building', BuildingController::class)->except(['destroy']);
+    Route::Resource('category', CategoryController::class)->except(['destroy','store']);
+    Route::Resource('building', BuildingController::class)->except(['destroy','store']);
     Route::Resource('item', ItemController::class)->except(['index','destroy']);
 });
 
