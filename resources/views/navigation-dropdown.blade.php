@@ -24,6 +24,10 @@
                         {{ __('Building') }}
                     </x-jet-nav-link>
 
+                     <x-jet-nav-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
+                        {{ __('Category') }}
+                    </x-jet-nav-link>
+
 
                 </div>
             </div>
