@@ -14,6 +14,8 @@ class Category extends Model
     /**
      * @var array
      */
+    public static $whereToSave = 'public/photos';
+    public static $whereToSaveImage = 'public/photos';
     protected $guarded = [];
     protected $hidden = ['created_at' , 'updated_at'];
     /**
@@ -22,5 +24,9 @@ class Category extends Model
      */
     public function bill(){
         return $this->hasMany(Bill::class);
+    }
+    public function getPublicUrl()
+    {
+        return \Storage::disk('local')->url('photos/'.$this->image_url);
     }
 }
