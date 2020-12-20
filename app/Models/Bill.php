@@ -25,6 +25,7 @@ class Bill extends Model
      */
     protected $guarded = [];
     protected $hidden = ['updated_at' , ];
+    public static $whereToSaveImage = 'public/photos';
     use HasFactory;
 
     /**
