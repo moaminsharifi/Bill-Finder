@@ -1,7 +1,7 @@
 <div class="container mx-auto px-4 py-5">
    
 
-<table   id="datatable" class="table table-bordered yajra-datatable">
+<table   id="datatable" class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>#id</th>
@@ -17,8 +17,8 @@
                     <td>{{$bill->id}}</td>
                      <td>{{$bill->name}}</td>
                     <td>{{$bill->price}}</td>
-                    <td>{{$bill->building_id}}</td>
-                    <td>{{$bill->category_id}}</td>
+                    <td>{{$bill->building->name}}</td>
+                    <td>{{$bill->category->name}}</td>
                     <td>{{$bill->created_at->format('Y.m.d')}}</td>
                 </tr>
 
