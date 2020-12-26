@@ -20,7 +20,8 @@
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^2.0",
         "tightenco/ziggy": "^0.9.4",
-        "vinkla/hashids": "^9.0"
+        "vinkla/hashids": "^9.0",
+        "yajra/laravel-datatables-oracle": "^9.15"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
