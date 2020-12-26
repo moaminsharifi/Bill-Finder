@@ -14,7 +14,14 @@ class BillController extends Controller
      */
     public function index()
     {
-        //
+        return view('bill.index');
+
+    }
+    public function getDataTable()
+    {
+         return datatables()->of(\App\Models\Bill::all())->toJson();
+         
+
     }
 
     /**
