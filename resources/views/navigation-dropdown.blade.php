@@ -16,17 +16,88 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('bill.index') }}" :active="request()->routeIs('bill.index')">
-                        {{ __('Bill') }}
-                    </x-jet-nav-link>
+                     {{-- DropDownMenu --}}
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <x-jet-dropdown align="left" width="48">
 
-                     <x-jet-nav-link href="{{ route('building.index') }}" :active="request()->routeIs('building.index')">
-                        {{ __('Building') }}
-                    </x-jet-nav-link>
+                                <x-slot name="trigger">
+                                    <x-jet-nav-link href="#" :active="request()->routeIs('bill.index')">
+                                        {{ __('Bill') }}
+                                    </x-jet-nav-link>
 
-                     <x-jet-nav-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
-                        {{ __('Category') }}
-                    </x-jet-nav-link>
+                                    
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-jet-dropdown-link href="{{ route('bill.index') }}" :active="request()->routeIs('category.index')">
+                                {{ __('Bill List') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('bill.create') }}" :active="request()->routeIs('category.create')">
+                                {{ __('Create New Bill') }}
+                                    </x-jet-dropdown-link>
+
+
+                                </x-slot>   
+                            </x-jet-dropdown>
+                        </div>
+                        {{-- End DropDownMenu --}}
+
+                      {{-- DropDownMenu --}}
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <x-jet-dropdown align="left" width="48">
+
+                                <x-slot name="trigger">
+                                    <x-jet-nav-link href="#" :active="request()->routeIs('building.index')">
+                                        {{ __('Building') }}
+                                    </x-jet-nav-link>
+
+                                    
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-jet-dropdown-link href="{{ route('building.index') }}" :active="request()->routeIs('category.index')">
+                                {{ __('Building List') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('building.create') }}" :active="request()->routeIs('category.create')">
+                                {{ __('Create New Building') }}
+                                    </x-jet-dropdown-link>
+
+
+                                </x-slot>   
+                            </x-jet-dropdown>
+                        </div>
+                        {{-- End DropDownMenu --}}
+                    
+                        
+                        {{-- DropDownMenu --}}
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <x-jet-dropdown align="left" width="48">
+
+                                <x-slot name="trigger">
+                                    <x-jet-nav-link href="#" :active="request()->routeIs('category.index')">
+                                        {{ __('Category') }}
+                                    </x-jet-nav-link>
+
+                                    
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-jet-dropdown-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
+                                {{ __('Category List') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('category.create') }}" :active="request()->routeIs('category.create')">
+                                {{ __('Create New Category') }}
+                                    </x-jet-dropdown-link>
+
+
+                                </x-slot>   
+                            </x-jet-dropdown>
+                        </div>
+                        {{-- End DropDownMenu --}}
+
+                    
+                     
+                    
 
 
                 </div>
