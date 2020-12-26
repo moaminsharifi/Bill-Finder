@@ -30,6 +30,7 @@ Route::group([
     Route::Resource('category', CategoryController::class)->except(['destroy','store']);
     Route::Resource('building', BuildingController::class)->except(['destroy','store']);
     Route::Resource('item', ItemController::class)->except(['store','destroy']);
+    Route::get('bill/getDataTable',  [BillController::class, 'getDataTable'])->name('bill.getDataTable');
 });
 
 
